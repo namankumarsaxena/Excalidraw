@@ -4,12 +4,19 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@repo/typescript-config": "*",
+    "@types/bun": "latest",
+    "@types/ws": "^8.18.1"
   },
-  "dependencies": {
-    "@repo/typescript-config": "*"
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "build": "tsc",
+    "start": "bun dist/index.js"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "ws": "^8.21.3"
   }
 }
