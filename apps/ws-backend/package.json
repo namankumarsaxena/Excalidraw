@@ -6,6 +6,7 @@
   "devDependencies": {
     "@repo/typescript-config": "*",
     "@types/bun": "latest",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/ws": "^8.18.1"
   },
   "scripts": {
@@ -17,6 +18,7 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "jsonwebtoken": "^9.0.3",
     "ws": "^8.21.3"
   }
 }
