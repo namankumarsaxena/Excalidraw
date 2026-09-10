@@ -2,7 +2,7 @@
   "name": "@repo/common",
   "module": "index.ts",
   "type": "module",
-  "export": {
+  "exports": {
     "./types": "./src/types.ts"
   },
   "private": true,
