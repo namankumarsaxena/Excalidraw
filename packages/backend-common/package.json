@@ -1,0 +1,17 @@
+{
+  "name": "@repo/backend-common",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@repo/typescript-config": "*"
+  },
+  "exports": {
+    "./config": "./src/index.ts"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@types/node": "^22.20.2"
+  }
+}

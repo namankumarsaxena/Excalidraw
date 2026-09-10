@@ -7,7 +7,9 @@
     "@repo/typescript-config": "*",
     "@types/bun": "latest",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/ws": "^8.18.1"
+    "@types/ws": "^8.18.1",
+    "@repo/backend-common": "*",
+    "@repo/common": "*"
   },
   "scripts": {
     "dev": "bun --watch src/index.ts",

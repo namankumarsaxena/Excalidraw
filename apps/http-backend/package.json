@@ -12,7 +12,9 @@
     "@repo/typescript-config": "*",
     "@types/bun": "latest",
     "@types/express": "^5.0.6",
-    "@types/jsonwebtoken": "^9.0.10"
+    "@types/jsonwebtoken": "^9.0.10",
+    "@repo/backend-common": "*",
+    "@repo/common": "*"
   },
   "peerDependencies": {
     "typescript": "^5"
