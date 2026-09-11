@@ -151,8 +151,8 @@ export type UserGroupByOutputType = {
   id: string
   email: string
   password: string
-  name: string
-  photo: string
+  name: string | null
+  photo: string | null
   _count: UserCountAggregateOutputType | null
   _min: UserMinAggregateOutputType | null
   _max: UserMaxAggregateOutputType | null
@@ -180,8 +180,8 @@ export type UserWhereInput = {
   id?: Prisma.StringFilter<"User"> | string
   email?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
-  name?: Prisma.StringFilter<"User"> | string
-  photo?: Prisma.StringFilter<"User"> | string
+  name?: Prisma.StringNullableFilter<"User"> | string | null
+  photo?: Prisma.StringNullableFilter<"User"> | string | null
   rooms?: Prisma.RoomListRelationFilter
   chats?: Prisma.ChatListRelationFilter
 }
@@ -190,31 +190,31 @@ export type UserOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  name?: Prisma.SortOrder
-  photo?: Prisma.SortOrder
+  name?: Prisma.SortOrderInput | Prisma.SortOrder
+  photo?: Prisma.SortOrderInput | Prisma.SortOrder
   rooms?: Prisma.RoomOrderByRelationAggregateInput
   chats?: Prisma.ChatOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  email?: string
   AND?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
-  email?: Prisma.StringFilter<"User"> | string
   password?: Prisma.StringFilter<"User"> | string
-  name?: Prisma.StringFilter<"User"> | string
-  photo?: Prisma.StringFilter<"User"> | string
+  name?: Prisma.StringNullableFilter<"User"> | string | null
+  photo?: Prisma.StringNullableFilter<"User"> | string | null
   rooms?: Prisma.RoomListRelationFilter
   chats?: Prisma.ChatListRelationFilter
-}, "id">
+}, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   password?: Prisma.SortOrder
-  name?: Prisma.SortOrder
-  photo?: Prisma.SortOrder
+  name?: Prisma.SortOrderInput | Prisma.SortOrder
+  photo?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _max?: Prisma.UserMaxOrderByAggregateInput
   _min?: Prisma.UserMinOrderByAggregateInput
@@ -227,16 +227,16 @@ export type UserScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"User"> | string
   email?: Prisma.StringWithAggregatesFilter<"User"> | string
   password?: Prisma.StringWithAggregatesFilter<"User"> | string
-  name?: Prisma.StringWithAggregatesFilter<"User"> | string
-  photo?: Prisma.StringWithAggregatesFilter<"User"> | string
+  name?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  photo?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
 }
 
 export type UserCreateInput = {
   id?: string
   email: string
   password: string
-  name: string
-  photo: string
+  name?: string | null
+  photo?: string | null
   rooms?: Prisma.RoomCreateNestedManyWithoutAdminInput
   chats?: Prisma.ChatCreateNestedManyWithoutUserInput
 }
@@ -245,8 +245,8 @@ export type UserUncheckedCreateInput = {
   id?: string
   email: string
   password: string
-  name: string
-  photo: string
+  name?: string | null
+  photo?: string | null
   rooms?: Prisma.RoomUncheckedCreateNestedManyWithoutAdminInput
   chats?: Prisma.ChatUncheckedCreateNestedManyWithoutUserInput
 }
@@ -255,8 +255,8 @@ export type UserUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  photo?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rooms?: Prisma.RoomUpdateManyWithoutAdminNestedInput
   chats?: Prisma.ChatUpdateManyWithoutUserNestedInput
 }
@@ -265,8 +265,8 @@ export type UserUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  photo?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rooms?: Prisma.RoomUncheckedUpdateManyWithoutAdminNestedInput
   chats?: Prisma.ChatUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -275,24 +275,24 @@ export type UserCreateManyInput = {
   id?: string
   email: string
   password: string
-  name: string
-  photo: string
+  name?: string | null
+  photo?: string | null
 }
 
 export type UserUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  photo?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type UserUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  photo?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type UserCountOrderByAggregateInput = {
@@ -328,6 +328,10 @@ export type StringFieldUpdateOperationsInput = {
   set?: string
 }
 
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
+}
+
 export type UserCreateNestedOneWithoutRoomsInput = {
   create?: Prisma.XOR<Prisma.UserCreateWithoutRoomsInput, Prisma.UserUncheckedCreateWithoutRoomsInput>
   connectOrCreate?: Prisma.UserCreateOrConnectWithoutRoomsInput
@@ -360,8 +364,8 @@ export type UserCreateWithoutRoomsInput = {
   id?: string
   email: string
   password: string
-  name: string
-  photo: string
+  name?: string | null
+  photo?: string | null
   chats?: Prisma.ChatCreateNestedManyWithoutUserInput
 }
 
@@ -369,8 +373,8 @@ export type UserUncheckedCreateWithoutRoomsInput = {
   id?: string
   email: string
   password: string
-  name: string
-  photo: string
+  name?: string | null
+  photo?: string | null
   chats?: Prisma.ChatUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -394,8 +398,8 @@ export type UserUpdateWithoutRoomsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  photo?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   chats?: Prisma.ChatUpdateManyWithoutUserNestedInput
 }
 
@@ -403,8 +407,8 @@ export type UserUncheckedUpdateWithoutRoomsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  photo?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   chats?: Prisma.ChatUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -412,8 +416,8 @@ export type UserCreateWithoutChatsInput = {
   id?: string
   email: string
   password: string
-  name: string
-  photo: string
+  name?: string | null
+  photo?: string | null
   rooms?: Prisma.RoomCreateNestedManyWithoutAdminInput
 }
 
@@ -421,8 +425,8 @@ export type UserUncheckedCreateWithoutChatsInput = {
   id?: string
   email: string
   password: string
-  name: string
-  photo: string
+  name?: string | null
+  photo?: string | null
   rooms?: Prisma.RoomUncheckedCreateNestedManyWithoutAdminInput
 }
 
@@ -446,8 +450,8 @@ export type UserUpdateWithoutChatsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  photo?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rooms?: Prisma.RoomUpdateManyWithoutAdminNestedInput
 }
 
@@ -455,8 +459,8 @@ export type UserUncheckedUpdateWithoutChatsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.StringFieldUpdateOperationsInput | string
-  name?: Prisma.StringFieldUpdateOperationsInput | string
-  photo?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  photo?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rooms?: Prisma.RoomUncheckedUpdateManyWithoutAdminNestedInput
 }
 
@@ -554,8 +558,8 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     id: string
     email: string
     password: string
-    name: string
-    photo: string
+    name: string | null
+    photo: string | null
   }, ExtArgs["result"]["user"]>
   composites: {}
 }

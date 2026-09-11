@@ -14,7 +14,8 @@
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
     "@repo/backend-common": "*",
-    "@repo/common": "*"
+    "@repo/common": "*",
+    "@repo/db": "*"
   },
   "peerDependencies": {
     "typescript": "^5"
