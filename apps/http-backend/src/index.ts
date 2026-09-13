@@ -31,6 +31,7 @@ app.post("/signup", async (req, res) => {
             userId: user.id
         })
     } catch(e) {
+        console.log(e)
         res.status(411).json({
             message: "User already exists with this username"
         })
