@@ -9,7 +9,8 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/ws": "^8.18.1",
     "@repo/backend-common": "*",
-    "@repo/common": "*"
+    "@repo/common": "*",
+    "@repo/db": "*"
   },
   "scripts": {
     "dev": "bun --watch src/index.ts",

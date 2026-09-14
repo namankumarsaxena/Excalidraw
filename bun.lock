@@ -58,6 +58,7 @@
       "devDependencies": {
         "@repo/backend-common": "*",
         "@repo/common": "*",
+        "@repo/db": "*",
         "@repo/typescript-config": "*",
         "@types/bun": "latest",
         "@types/jsonwebtoken": "^9.0.10",
