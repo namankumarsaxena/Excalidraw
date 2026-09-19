@@ -4,16 +4,17 @@
   "type": "module",
   "private": true,
   "devDependencies": {
+    "@repo/backend-common": "*",
+    "@repo/common": "*",
+    "@repo/db": "*",
     "@repo/typescript-config": "*",
     "@types/bun": "latest",
     "@types/jsonwebtoken": "^9.0.10",
     "@types/ws": "^8.18.1",
-    "@repo/backend-common": "*",
-    "@repo/common": "*",
-    "@repo/db": "*"
+    "tsx": "^4.23.13"
   },
   "scripts": {
-    "dev": "bun --watch src/index.ts",
+    "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "bun dist/index.js"
   },
@@ -21,6 +22,7 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "dotenv": "^17.4.2",
     "jsonwebtoken": "^9.0.3",
     "ws": "^8.21.3"
   }

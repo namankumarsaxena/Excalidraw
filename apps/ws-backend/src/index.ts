@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import { WebSocketServer, WebSocket } from "ws";
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "@repo/backend-common/config";
@@ -58,7 +60,21 @@ wss.on('connection', function connection(ws, request) {
 
         if (parsedData.type === "join_room") {
             const user = users.find(x => x.ws === ws);
-            user?.rooms.push(parsedData.roomId);
+            // user?.rooms.push(parsedData.roomId);
+            if (!user) {
+                ws.close();
+                return;
+            }
+            const roomId = String(parsedData.roomId);
+            if (!user.rooms.includes(roomId)) {
+            user.rooms.push(roomId);
+            }
+
+            console.log("User joined room:", {
+                userId: user.userId,
+                roomId,
+                rooms: user.rooms,
+            });
         }
 
         if (parsedData.type === "leave_room") {
@@ -82,7 +98,13 @@ wss.on('connection', function connection(ws, request) {
             });
             
             users.forEach(user => {
-                if (user.rooms.includes(roomId)) {
+                console.log("Checking user:", {
+                    userId: user.userId,
+                    rooms: user.rooms,
+                    isInRoom: user.rooms.includes(String(roomId)),
+                    });
+
+                if (user.rooms.includes(String(roomId))) {
                     user.ws.send(JSON.stringify({
                         type: "chat",
                         message: message,

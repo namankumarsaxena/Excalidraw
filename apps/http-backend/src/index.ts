@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import express from "express";
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "@repo/backend-common/config";
@@ -122,6 +124,19 @@ app.get("/chats/:roomId", async (req, res) => {
 
     res.json({
         messages
+    })
+})
+
+app.get("/room/:slug", async (req , res) => {
+    const slug = req.params.slug;
+    const room = await prismaClient.room.findFirst({
+        where: {
+            slug
+        }
+    });
+
+    res.json({
+        room
     })
 })
 app.listen(3001);
