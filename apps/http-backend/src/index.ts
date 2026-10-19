@@ -5,10 +5,13 @@ import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "@repo/backend-common/config";
 import { middleware } from "./middleware.js";
 import {CreateUserSchema, SigninSchema, CreateRoomSchema } from "@repo/common/types";
-import {prismaClient} from "@repo/db/client"
+import {prismaClient} from "@repo/db/client";
+import cors from "cors";;
 
 const app = express();
+
 app.use(express.json());
+app.use(cors());
 
 app.post("/signup", async (req, res) => {
     
@@ -119,7 +122,7 @@ app.get("/chats/:roomId", async (req, res) => {
         orderBy: {
             id: "desc"
         } ,
-        take: 50
+        take: 1000
     });
 
     res.json({
